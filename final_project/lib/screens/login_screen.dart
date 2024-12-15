@@ -1,6 +1,7 @@
 import 'package:final_project/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
+import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -34,18 +35,17 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await _authService.signIn(email, password);
       Navigator.pushReplacement(
-  context,
-  MaterialPageRoute(
-    builder: (context) => const HomeScreen(
-      firstName: "John", 
-      lastName: "Doe",   
-    ),
-  ),
-);
-
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(
+            firstName: "John",
+            lastName: "Doe",
+          ),
+        ),
+      );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Login Failed: ${e.toString()}")),
+        SnackBar(content: Text("Login Failed: \${e.toString()}")),
       );
     } finally {
       setState(() {
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, 
+      backgroundColor: Colors.black,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
-                    Icons.filter_vintage, 
+                    Icons.filter_vintage,
                     size: 80,
                     color: Colors.white,
                   ),
@@ -149,9 +149,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 // Sign Up Option
                 TextButton(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                          content: Text("Sign Up feature coming soon!")),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
                     );
                   },
                   child: const Text(

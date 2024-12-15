@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildPortfolioSummary() {
     return Consumer<InvestmentProvider>(
       builder: (context, provider, _) {
-        bool isGain = provider.portfolioGain >= 0;
+         bool isGain = provider.portfolioGain >= 0;
 
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -181,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildRealTimeStockGraph() {
     return Consumer<InvestmentProvider>(
       builder: (context, provider, _) {
-        final spots = provider.realTimeGraphSpots('AAPL'); 
+        final spots = provider.realTimeGraphSpots('AAPL');
 
         if (spots.isEmpty) {
           return const Center(child: CircularProgressIndicator());
