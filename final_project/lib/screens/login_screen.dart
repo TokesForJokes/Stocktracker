@@ -1,4 +1,4 @@
-import 'package:final_project/services/auth_service.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'signup_screen.dart';

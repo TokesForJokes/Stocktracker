@@ -199,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   isCurved: true,
                   barWidth: 2,
                   color: isGain ? Colors.greenAccent : Colors.redAccent,
-                  dotData: FlDotData(show: false),
+                  dotData: const FlDotData(show: false),
                   belowBarData: BarAreaData(
                     show: true,
                     gradient: LinearGradient(
@@ -212,8 +212,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
-              gridData: FlGridData(show: false),
-              titlesData: FlTitlesData(
+              gridData: const FlGridData(show: false),
+              titlesData: const FlTitlesData(
                 leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
                 bottomTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
                 rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),

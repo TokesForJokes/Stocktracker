@@ -4,7 +4,7 @@ import '../providers/investment_provider.dart';
 import 'stock_detail_screen.dart';
 
 class StockListScreen extends StatefulWidget {
-  const StockListScreen({Key? key}) : super(key: key);
+  const StockListScreen({super.key});
 
   @override
   State<StockListScreen> createState() => _StockListScreenState();
