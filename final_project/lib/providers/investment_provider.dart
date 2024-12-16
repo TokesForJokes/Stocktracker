@@ -50,22 +50,24 @@ class InvestmentProvider with ChangeNotifier {
 
   // Update real-time graph data
   void updateGraphData(String ticker, double price, DateTime time) {
-    final timestamp = time.millisecondsSinceEpoch.toDouble();
-    final spot = FlSpot(timestamp, price);
+  final timestamp = time.millisecondsSinceEpoch.toDouble();
+  final spot = FlSpot(timestamp, price);
 
-    if (_graphData.containsKey(ticker)) {
-      _graphData[ticker]!.add(spot);
+  if (_graphData.containsKey(ticker)) {
+    _graphData[ticker]!.add(spot);
 
-      // Limit to the last 60 points for better visualization
-      if (_graphData[ticker]!.length > 60) {
-        _graphData[ticker] = _graphData[ticker]!.sublist(_graphData[ticker]!.length - 60);
-      }
-    } else {
-      _graphData[ticker] = [spot];
+
+    if (_graphData[ticker]!.length > 30) {
+      _graphData[ticker] = _graphData[ticker]!.sublist(_graphData[ticker]!.length - 30);
     }
-
-    notifyListeners();
+  } else {
+    _graphData[ticker] = [spot];
   }
+
+  debugPrint('Graph data for $ticker updated: ${_graphData[ticker]}');
+  notifyListeners();
+}
+
 
   // Fetch stock search results
   Future<void> fetchSearchResults(String query) async {

@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => InvestmentProvider()),
         ChangeNotifierProvider(create: (_) => WatchlistProvider()),
         ChangeNotifierProvider(create: (_) => NewsProvider()..fetchStockNews()),
+        ChangeNotifierProvider(create: (context) => InvestmentProvider()..connectWebSocket(['AAPL', 'GOOGL', 'AMZN'])),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
